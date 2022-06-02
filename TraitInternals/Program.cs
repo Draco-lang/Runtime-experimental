@@ -56,6 +56,7 @@ impl CanQuack<int> for int
 
 */
 
+[TraitImplementation(typeof(int), typeof(CanQuack<int>))]
 public static class CanQuack_int_impl_for_Int
 {
     public static Unit Quack(int i)
