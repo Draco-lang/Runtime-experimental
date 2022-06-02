@@ -1,0 +1,108 @@
+Detected jobs: 
+  (Tier = Tier1)
+
+Detected columns: 
+  Branches
+  Calls
+  CodegenSize
+
+Detected methods: 
+  Void TotalOverhead1()(())
+
+Investigating Void TotalOverhead1() () (Tier = Tier1)...
+
+
+
+(Void TotalOverhead1(), Tier1)
+       00007FF9796B7B60 57                   push      rdi
+       00007FF9796B7B61 56                   push      rsi
+       00007FF9796B7B62 55                   push      rbp
+       00007FF9796B7B63 53                   push      rbx
+       00007FF9796B7B64 4883EC48             sub       rsp,48h
+       00007FF9796B7B68 33C0                 xor       eax,eax
+       00007FF9796B7B6A 4889442428           mov       [rsp+28h],rax
+       00007FF9796B7B6F C5D857E4             vxorps    xmm4,xmm4,xmm4
+       00007FF9796B7B73 C5F97F642430         vmovdqa   [rsp+30h],xmm4
+       00007FF9796B7B79 4889442440           mov       [rsp+40h],rax
+       00007FF9796B7B7E 48B980944D79F97F0000 mov       rcx,7FF9`794D`9480h
+       00007FF9796B7B88 E87353815F           call      0000`7FF9`D8EC`CF00h
+       00007FF9796B7B8D 488BF0               mov       rsi,rax
+       00007FF9796B7B90 488BCE               mov       rcx,rsi
+       00007FF9796B7B93 E8D851805F           call      0000`7FF9`D8EB`CD70h
+       00007FF9796B7B98 8BF8                 mov       edi,eax
+       00007FF9796B7B9A 48B9500B7579F97F0000 mov       rcx,7FF9`7975`0B50h
+       00007FF9796B7BA4 E85753815F           call      0000`7FF9`D8EC`CF00h
+       00007FF9796B7BA9 488BD8               mov       rbx,rax
+       00007FF9796B7BAC 488BCB               mov       rcx,rbx
+       00007FF9796B7BAF E8BC51805F           call      0000`7FF9`D8EB`CD70h
+       00007FF9796B7BB4 03F8                 add       edi,eax
+       00007FF9796B7BB6 488BCE               mov       rcx,rsi
+       00007FF9796B7BB9 E8B251805F           call      0000`7FF9`D8EB`CD70h
+       00007FF9796B7BBE 03F8                 add       edi,eax
+       00007FF9796B7BC0 48B9C80C7579F97F0000 mov       rcx,7FF9`7975`0CC8h
+       00007FF9796B7BCA E83153815F           call      0000`7FF9`D8EC`CF00h
+       00007FF9796B7BCF 488BC8               mov       rcx,rax
+       00007FF9796B7BD2 E89951805F           call      0000`7FF9`D8EB`CD70h
+       00007FF9796B7BD7 03F8                 add       edi,eax
+       00007FF9796B7BD9 48B9982E0DB315020000 mov       rcx,215`B30D`2E98h
+       00007FF9796B7BE3 488B09               mov       rcx,[rcx]
+       00007FF9796B7BE6 4C8D442440           lea       r8,[rsp+40h]
+       00007FF9796B7BEB 8BD7                 mov       edx,edi
+       00007FF9796B7BED 3909                 cmp       [rcx],ecx
+       00007FF9796B7BEF FF1533950500         call      qword [rel 7FF9`7971`1128h]
+       00007FF9796B7BF5 85C0                 test      eax,eax
+     ┌─00007FF9796B7BF7 7416                 je        short 0000`7FF9`796B`7C0Fh
+     │ 00007FF9796B7BF9 488B542440           mov       rdx,[rsp+40h]
+     │ 00007FF9796B7BFE 48B940147579F97F0000 mov       rcx,7FF9`7975`1440h
+     │ 00007FF9796B7C08 E843F8D8FF           call      System.Object ChkCastAny(Void*, System.Object) (00007FF979447450)
+    ┌┼─00007FF9796B7C0D EB68                 jmp       short 0000`7FF9`796B`7C77h
+    │└>00007FF9796B7C0F 48B9A02E0DB315020000 mov       rcx,215`B30D`2EA0h
+    │  00007FF9796B7C19 488B09               mov       rcx,[rcx]
+    │  00007FF9796B7C1C 33ED                 xor       ebp,ebp
+    │  00007FF9796B7C1E 3909                 cmp       [rcx],ecx
+    │  00007FF9796B7C20 488D542428           lea       rdx,[rsp+28h]
+    │  00007FF9796B7C25 488932               mov       [rdx],rsi
+    │  00007FF9796B7C28 48895A08             mov       [rdx+8],rbx
+    │  00007FF9796B7C2C 896A10               mov       [rdx+10h],ebp
+    │  00007FF9796B7C2F 488D542428           lea       rdx,[rsp+28h]
+    │  00007FF9796B7C34 E89755FEFF           call      System.__Canon& FindValue(System.ValueTuple`3[System.__Canon,System.__Canon,System.Int32]) (00007FF97969D1D0)
+    │  00007FF9796B7C39 4885C0               test      rax,rax
+    │┌─00007FF9796B7C3C 7456                 je        short 0000`7FF9`796B`7C94h
+    ││ 00007FF9796B7C3E 488B08               mov       rcx,[rax]
+    ││ 00007FF9796B7C41 48BAB8517579F97F0000 mov       rdx,7FF9`7975`51B8h
+    ││ 00007FF9796B7C4B 3909                 cmp       [rcx],ecx
+    ││ 00007FF9796B7C4D E8CE5CFEFF           call      0000`7FF9`7969`D920h
+    ││ 00007FF9796B7C52 488BF0               mov       rsi,rax
+    ││ 00007FF9796B7C55 48B9982E0DB315020000 mov       rcx,215`B30D`2E98h
+    ││ 00007FF9796B7C5F 488B09               mov       rcx,[rcx]
+    ││ 00007FF9796B7C62 3909                 cmp       [rcx],ecx
+    ││ 00007FF9796B7C64 8BD7                 mov       edx,edi
+    ││ 00007FF9796B7C66 4C8BC6               mov       r8,rsi
+    ││ 00007FF9796B7C69 41B901000000         mov       r9d,1
+    ││ 00007FF9796B7C6F E8C4A7FDFF           call      0000`7FF9`7969`2438h
+    ││ 00007FF9796B7C74 488BC6               mov       rax,rsi
+    └┼>00007FF9796B7C77 33C9                 xor       ecx,ecx
+     │ 00007FF9796B7C79 48894C2440           mov       [rsp+40h],rcx
+     │ 00007FF9796B7C7E 488B4808             mov       rcx,[rax+8]
+     │ 00007FF9796B7C82 BA05000000           mov       edx,5
+     │ 00007FF9796B7C87 FF5018               call      qword [rax+18h]
+     │ 00007FF9796B7C8A 90                   nop
+     │ 00007FF9796B7C8B 4883C448             add       rsp,48h
+     │ 00007FF9796B7C8F 5B                   pop       rbx
+     │ 00007FF9796B7C90 5D                   pop       rbp
+     │ 00007FF9796B7C91 5E                   pop       rsi
+     │ 00007FF9796B7C92 5F                   pop       rdi
+     │ 00007FF9796B7C93 C3                   ret
+     └>00007FF9796B7C94 488D542428           lea       rdx,[rsp+28h]
+       00007FF9796B7C99 488932               mov       [rdx],rsi
+       00007FF9796B7C9C 48895A08             mov       [rdx+8],rbx
+       00007FF9796B7CA0 896A10               mov       [rdx+10h],ebp
+       00007FF9796B7CA3 488D542428           lea       rdx,[rsp+28h]
+       00007FF9796B7CA8 48B908867879F97F0000 mov       rcx,7FF9`7978`8608h
+       00007FF9796B7CB2 E8417CFEFF           call      0000`7FF9`7969`F8F8h
+       00007FF9796B7CB7 CC                   int3
+
+| Job             | Method                 | Branches  | Calls  | CodegenSize  |
+|:---------------:|:----------------------:|:---------:|:------:|:------------:|
+| (Tier = Tier1)  | Void TotalOverhead1()  | 2         | 14     | 344 B        |
+

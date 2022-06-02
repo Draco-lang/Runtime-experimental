@@ -1,68 +1,57 @@
-﻿/*
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet;
+using BenchmarkDotNet.Running;
+using CodegenAnalysis.Benchmarks;
 
-quack(56)
 
-quack<T> (a : T) = where T : CanQuack<T> = a.Quack()
+// BenchmarkRunner.Run<Bench>();
+CodegenBenchmarkRunner.Run<Bench>();
+// Bench.quack(5);
+// Bench.quack1(10);
 
-trait CanQuack<T>
+public class Bench
 {
-    Quack : T -> ()
+    [Benchmark]
+    public void TotalOverhead()
+    {
+        quack(5);
+    }
+
+    [Benchmark]
+    [CAAnalyze()]
+    public void TotalOverhead1()
+    {
+        quack1(5);
+    }
+
+    [TraitConstraint(toConstrain: "T", traitName: "CanQuack", traitTypeArgs: new [] { "T" })]
+    public static void quack<T>(T a)
+    {
+        var methodToInvoke = Internals.GetMethod<T, CanQuack<T>, T, Unit>(methodId: 0);
+        methodToInvoke(a);
+    }
+
+    [TraitConstraint(toConstrain: "T", traitName: "CanQuack", traitTypeArgs: new [] { "T" })]
+    public static void quack1<T>(T a)
+    {
+        var methodToInvoke = Internals1.GetMethod<T, CanQuack<T>, T, Unit>(methodId: 0);
+        methodToInvoke(a);
+    }
 }
 
-impl CanQuack<int> for int
-{
-    Quack a = ()
-}
-
-*/
-
-// quack(56)
-quack(56);
-
-/*
-
-quack<T> (a : T) = where T : CanQuack<T> = a.Quack()
-
-*/
-[TraitConstraint(toConstrain: "T", traitName: "CanQuack", traitTypeArgs: new [] { "T" })]
-static void quack<T>(T a)
-{
-    var methodToInvoke = Internals.GetMethod<T, CanQuack<T>, T, Unit>(methodId: 0);
-    methodToInvoke(a);
-}
-
-/*
-
-trait CanQuack<T>
-{
-    Quack : T -> ()
-}
-
-
-*/
-
-interface CanQuack<T>
-{
-    // methodId : 0
-    Unit Quack(T a);
-}
-
-/*
-
-impl CanQuack<int> for int
-{
-    Quack a = ()
-}
-
-*/
 
 [TraitImplementation(typeof(int), typeof(CanQuack<int>))]
 public static class CanQuack_int_impl_for_Int
 {
     public static Unit Quack(int i)
     {
-        Console.WriteLine($"Quack. {i}");
+        // Console.WriteLine($"Quack. {i}");
         return new Unit();
     }
 }
 
+interface CanQuack<T>
+{
+    // methodId : 0
+    Unit Quack(T a);
+}
